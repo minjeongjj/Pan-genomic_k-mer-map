@@ -1,32 +1,35 @@
-# Pan-genomic k-mer Map and Association Analysis
+# Pan-genomic k-mer analysis
 
-### An assembly-anchored, reference-free framework for genome-wide variation and trait-associated locus discovery
+This repository contains three analysis modules for constructing pan-genomic *k*-mer maps and investigating trait-associated genomic variation using genome assemblies.
 
-This repository provides computational pipelines for constructing and utilizing a pan-genomic k-mer map derived from multiple de novo genome assemblies.
+## Analysis modules
 
-By anchoring k-mers to their genomic positions and copy numbers across individual assemblies, this framework enables direct interrogation of pan-genomic sequence diversity without relying on a single reference genome, read alignment, or variant calling.
+| Module | Description |
+| --- | --- |
+| [1. Pan-genomic k-mer map construction](1.Pangenomic_kmer_map/) | Construct an accession-resolved count matrix of canonical k-mers across genome assemblies. |
+| [2. k-mer-based genome-wide association studies (k-mer-GWAS)](2.Kmer_GWAS/) | Genome-wide association analysis using k-mer variation and phenotype data. Implementation and usage documentation are pending. |
+| [3. Targeted k-mer screening (TKS)](3.TKS/) | Screen k-mers derived from specified genomic sequences for trait associations, with optional whole-genome copy-number adjustment. |
 
-The framework supports genome-wide association analysis and targeted screening of predefined genomic sequences, facilitating the identification of trait-associated variation, including rare and accession-specific loci.
+## Workflow
 
-## Analytical Pipelines
+```mermaid
+flowchart TD
+    A[Whole-genome assemblies] --> B[Module 1: Pan-genomic k-mer map]
+    B --> C[Module 2: k-mer-GWAS]
+    B --> D[Module 3: TKS]
+    E[Targeted sequence FASTA files] --> F[Targeted k-mer map using Module 1]
+    F --> D
+    G[Phenotype data] --> C
+    G --> D
+    H[Target accession list] --> D
+```
 
-### 1. Pan-genomic k-mer Map Construction
-Construction of an assembly-anchored pan-genomic k-mer map integrating genomic coordinates, k-mer presence/absence, and copy-number information across multiple de novo assemblies.
+## Getting started
 
-### 2. Standard k-mer Genome-wide Association Studies (GWAS)
-Genome-wide association analysis using k-mer-based variation profiles to identify trait-associated sequences and genomic loci.
+Run the commands from the respective module directories. See each module's README for input formats, dependencies, execution commands and output descriptions. Module 3 reuses the scripts in Module 1; retain the sibling directory structure. For copy-number-adjusted TKS, prepare the whole-genome k-mer map using Module 1 before running Module 3.
 
-### 3. Targeted k-mer Screening (TKS)
-Targeted screening of k-mers derived from predefined genes, gene families, or genomic regions to identify trait-associated loci, particularly those associated with rare or lineage-restricted variation.
+Module 1 and Module 3 include example input formats. Example genome paths are placeholders and must be replaced with actual paths. Set thread counts and parallel job limits according to available CPU, RAM and storage resources.
 
-## Code Availability
+## Implementation status
 
-The associated manuscript is currently under consideration for publication.
-
-To ensure consistency with the finalized methodology and analytical workflows, the source code and accompanying documentation are temporarily withheld from public release.
-
-All computational pipelines and usage instructions will be made publicly available upon publication.
-
-## Citation
-
-Citation information will be updated upon publication.
+Modules 1 and 3 contain analysis scripts. Module 2 currently contains an overview only. End-to-end performance and reproducibility on the full dataset should be verified in the intended computing environment before release.

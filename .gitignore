@@ -1,0 +1,43 @@
+# Python and build artifacts
+__pycache__/
+*.py[cod]
+*.o
+validate_stream
+
+# Analysis inputs and outputs
+results/
+output/
+outputs/
+test_results/
+input/
+*.fa
+*.fasta
+*.fna
+*.fa.gz
+*.fasta.gz
+*.fna.gz
+*.jf
+*.dump
+*.dump.gz
+*.dump.line
+*.header
+*.header.gz
+*.row.list
+*.row.list.gz
+*.meta.json
+*.table
+*.table.gz
+*.tsv.gz
+
+# Logs, temporary files and archives
+*.log
+*.log2
+*.tmp
+*.tmp.gz
+*.zip
+*.tar.gz
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
