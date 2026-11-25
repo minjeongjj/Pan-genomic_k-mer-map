@@ -10,19 +10,7 @@ This repository contains three analysis modules for constructing pan-genomic *k*
 | [2. k-mer-based genome-wide association studies (k-mer-GWAS)](2.Kmer_GWAS/) | Genome-wide association analysis using k-mer variation and phenotype data. Implementation and usage documentation are pending. |
 | [3. Targeted k-mer screening (TKS)](3.TKS/) | Screen k-mers derived from specified genomic sequences for trait associations, with optional whole-genome copy-number adjustment. |
 
-## Workflow
 
-```mermaid
-flowchart TD
-    A[Whole-genome assemblies] --> B[Module 1: Pan-genomic k-mer map]
-    B --> C[Module 2: k-mer-GWAS]
-    B --> D[Module 3: TKS]
-    E[Targeted sequence FASTA files] --> F[Targeted k-mer map using Module 1]
-    F --> D
-    G[Phenotype data] --> C
-    G --> D
-    H[Target accession list] --> D
-```
 
 ## Getting started
 

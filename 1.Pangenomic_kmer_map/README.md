@@ -12,17 +12,6 @@ Run the commands below from this module's directory.
 
 ## Module 1 workflow
 
-```mermaid
-flowchart TD
-    A[Genome assemblies: FASTA or FASTA.gz] --> B[01. Pan-genomic k-mer catalog]
-    A --> C[02. Individual k-mer counting]
-    B --> D[03. Accession-specific k-mer profiles]
-    C --> D
-    D --> E[04. Profile validation]
-    E --> F[05. Matrix construction and validation]
-    B --> F
-    F --> G[Compressed pan-genomic k-mer map]
-```
 
 | Step | Script | Description |
 | --- | --- | --- |
