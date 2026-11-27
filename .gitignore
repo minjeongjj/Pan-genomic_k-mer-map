@@ -41,3 +41,8 @@ input/
 *~
 .DS_Store
 Thumbs.db
+
+# macOS metadata
+__MACOSX/
+.DS_Store
+._*
